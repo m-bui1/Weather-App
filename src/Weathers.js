@@ -3,10 +3,6 @@ import CityInput from './CityInput'
 import WeatherList from './WeatherList'
 import env from "react-dotenv";
 
-const longlat = process.env.LONGLAT
-const temp = process.env.TEMP
-
-
 class Weathers extends React.Component {
   state = {
     content: '',
@@ -33,7 +29,7 @@ class Weathers extends React.Component {
     console.log(content)
     
     async function getLongLat() {
-      const res = await fetch(`https://api.opencagedata.com/geocode/v1/json?key=${longlat}&q=${content}&pretty=1`)
+      const res = await fetch(`https://api.opencagedata.com/geocode/v1/json?key=${process.env.REACT_APP_LONGLAT}&q=${content}&pretty=1`)
       .then(res => res.json())
       const lngData = res['results'][0]['geometry']['lng']
       const latData = res['results'][0]['geometry']['lat']
@@ -44,7 +40,7 @@ class Weathers extends React.Component {
     
     
     async function getWeather(details) {
-      const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${details['latData']}&lon=${details['lngData']}&appid=${temp}`)
+      const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${details['latData']}&lon=${details['lngData']}&appid=${process.env.REACT_APP_TEMP}`)
         .then(res => res.json())
         let arr = []
         const currentWeather = res['list'][0]['main']['temp']
