@@ -1,36 +1,15 @@
-import fetch from 'node-fetch'
-
-// let userInput = document.querySelector('.city').value
-let cityButton = document.querySelector('.cityButton')
-
-cityButton.addEventListener('click', event => {
-  event.preventDefault()
-  let userInput = document.querySelector('.city').value
-  weatherData(userInput)
-})
-
-function weatherData(userInput){
-
-  async function getLongLat() {
-    const res = await fetch(`https://api.opencagedata.com/geocode/v1/json?key=${longlat}&q=${userInput}&pretty=1`)
-    .then(res => res.json())
-    const lngData = res['results'][0]['geometry']['lng']
-    const latData = res['results'][0]['geometry']['lat']
-    const country = res['results'][0]['components']['country_code']
-    const details = {lngData, latData, country}
-    return details
-  }
-
-
-  async function getWeather(details) {
-    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${details['latData']}&lon=${details['lngData']}&appid=${temp}`)
-      .then(res => res.json())
-      const currentWeather = res['main']['temp']
-      const weatherCelcius = `${userInput}, ${details["country"].toUpperCase()} is currently ${(currentWeather - 273.15).toFixed(2)} °C`
-      return weatherCelcius
-  }
-
-  getLongLat()
-    .then(details => getWeather(details))
-    .then(weatherCelcius => console.log(weatherCelcius));
+function WeatherCalc ({ content, userInput, getWeatherData, saveCity, handleCityChange }) {
+  return (
+    <div className="Weather">
+      <h1>Weather App</h1>
+      <form action="">
+        <input type="text" className="cityName" 
+        onChange={handleCityChange}
+        value={content}
+        />
+        <button className="cityButton" onClick={saveCity}>Submit City</button>
+      </form>
+    </div>
+  )
 }
+export default WeatherCalc
