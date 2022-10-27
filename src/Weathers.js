@@ -43,16 +43,22 @@ class Weathers extends React.Component {
       const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${details['latData']}&lon=${details['lngData']}&appid=${process.env.REACT_APP_TEMP}`)
         .then(res => res.json())
         let arr = []
+        const city = res['city']['name']
         const currentWeather = res['list'][0]['main']['temp']
         const currentDate = res['list'][0]['dt_txt']
+        const weatherDesc = res['list'][0]['weather']['description']
         const currentWeather2 = res['list'][8]['main']['temp']
         const currentDate2 = res['list'][8]['dt_txt']
+        const weatherDesc2 = res['list'][8]['weather']['description']
         const currentWeather3 = res['list'][16]['main']['temp']
         const currentDate3 = res['list'][16]['dt_txt']
+        const weatherDesc3 = res['list'][16]['weather']['description']
         const currentWeather4 = res['list'][24]['main']['temp']
         const currentDate4 = res['list'][24]['dt_txt']
+        const weatherDesc4 = res['list'][24]['weather']['description']
         const currentWeather5 = res['list'][32]['main']['temp']
         const currentDate5 = res['list'][32]['dt_txt']
+        const weatherDesc5 = res['list'][32]['weather']['description']
         const weatherCelcius = `${content}, ${details["country"].toUpperCase()} is currently ${(currentWeather - 273.15).toFixed(2)} °C
         ${currentDate2} is ${(currentWeather2 - 273.15).toFixed(2)} °C
         ${currentDate3} is ${(currentWeather3 - 273.15).toFixed(2)} °C
@@ -64,11 +70,11 @@ class Weathers extends React.Component {
         // obj[currentDate3] = currentWeather3
         // obj[currentDate4] = currentWeather4
         // obj[currentDate5] = currentWeather5
-        arr.push([currentDate, `${(currentWeather - 273.15).toFixed(2)} °C`, content, details["country"].toUpperCase()])
-        arr.push([currentDate2, `${(currentWeather2 - 273.15).toFixed(2)} °C`, content, details["country"].toUpperCase()])
-        arr.push([currentDate3, `${(currentWeather3 - 273.15).toFixed(2)} °C`, content, details["country"].toUpperCase()])
-        arr.push([currentDate4, `${(currentWeather4 - 273.15).toFixed(2)} °C`, content, details["country"].toUpperCase()])
-        arr.push([currentDate5, `${(currentWeather5 - 273.15).toFixed(2)} °C`, content, details["country"].toUpperCase()])
+        arr.push([currentDate, `${(currentWeather - 273.15).toFixed(2)} °C`, city, details["country"].toUpperCase(), weatherDesc])
+        arr.push([currentDate2, `${(currentWeather2 - 273.15).toFixed(2)} °C`, city, details["country"].toUpperCase(), weatherDesc2])
+        arr.push([currentDate3, `${(currentWeather3 - 273.15).toFixed(2)} °C`, city, details["country"].toUpperCase(), weatherDesc3])
+        arr.push([currentDate4, `${(currentWeather4 - 273.15).toFixed(2)} °C`, city, details["country"].toUpperCase(), weatherDesc4])
+        arr.push([currentDate5, `${(currentWeather5 - 273.15).toFixed(2)} °C`, city, details["country"].toUpperCase(), weatherDesc5])
         return arr
     }
     
@@ -84,7 +90,6 @@ class Weathers extends React.Component {
 
     return (
       <div className="Weather" >
-        <h1>Weather App</h1>
         <CityInput
           content={content}
           userInput={userInput}

@@ -9,23 +9,25 @@ import {
 
 function WeatherList({ weatherRes }) {
   return(
+    <div className="onClickWeather">
     <Accordion defaultIndex={[0]} allowMultiple>
       {weatherRes.map((weather, index) => 
         <AccordionItem>
           <h2>
-            <AccordionButton bg='var(--chakra-colors-teal-600)'>
-              <Box flex='1' textAlign='left' color='white'>
+            <AccordionButton className='tabs' bg='var(--chakra-colors-teal-600)'>
+              <Box flex='1' textAlign='left' color='lightblue'>
               <h2> {weather[2]}, {weather[3]} </h2>{weather[0]}
               </Box>
               <AccordionIcon />
             </AccordionButton>
           </h2>
-          <AccordionPanel pb={4}>
-            {weather[1]}
+          <AccordionPanel pb={4} color='black'>
+            {weather[1]}, {weather[4]}
           </AccordionPanel>
         </AccordionItem>
         )}
       </Accordion>
+      </div>
   )
 }
 

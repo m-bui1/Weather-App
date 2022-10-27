@@ -1,13 +1,15 @@
+import { Button, ButtonGroup, Input } from '@chakra-ui/react'
+
 function CityInput({ userInput, content, handleContentChange, saveCity }) {
   return (
     <div className="CityInput">
-      <input type="text" 
+      <Input placeholder='City...' size='md' type="text" 
         onChange={handleContentChange}
         value={content}
       />
-      <button
+      <Button
         onClick={saveCity} 
-      >Select City</button>
+      >Select City</Button>
     </div>
   )
 }
