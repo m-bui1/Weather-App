@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import Weathers from './Weathers';
-import { ChakraProvider } from '@chakra-ui/react';
+import { Button, ChakraProvider } from '@chakra-ui/react';
 import theme from './theme';
 import './Weather.css'
 import ToggleModeBtn from './ToggleMode';
@@ -25,13 +25,20 @@ function App() {
       <div className='tips'>
       <h1>Some Cities to Try</h1>
       <UnorderedList className='UL'>
-        <ListItem>Adelaide</ListItem>
-        <ListItem>Sydney</ListItem>
-        <ListItem>Melbourne</ListItem>
-        <ListItem>Brisbane</ListItem>
-        <ListItem>Darwin</ListItem>
-        <ListItem>Hobart</ListItem>
-        <ListItem>Canberra</ListItem>
+        <ListItem className='Cities'
+        >Adelaide</ListItem>
+        <ListItem className='Cities'
+        >Sydney</ListItem>
+        <ListItem className='Cities'
+        >Melbourne</ListItem>
+        <ListItem className='Cities'
+        >Brisbane</ListItem>
+        <ListItem className='Cities'
+        >Darwin</ListItem>
+        <ListItem className='Cities'
+        >Hobart</ListItem>
+        <ListItem className='Cities'
+        >Canberra</ListItem>
       </UnorderedList>
       </div>
     </ChakraProvider>
