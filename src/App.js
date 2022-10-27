@@ -1,12 +1,15 @@
 import './App.css';
 import React from 'react';
 import Weathers from './Weathers';
+import { ChakraProvider } from '@chakra-ui/react';
 
 function App() {
   return (
-    <div className="App">
-        <Weathers />
-    </div>
+    <ChakraProvider>
+      <div className="App">
+          <Weathers />
+      </div>
+    </ChakraProvider>
   )
 }
 

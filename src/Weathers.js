@@ -64,11 +64,11 @@ class Weathers extends React.Component {
         // obj[currentDate3] = currentWeather3
         // obj[currentDate4] = currentWeather4
         // obj[currentDate5] = currentWeather5
-        arr.push([currentDate, `${(currentWeather - 273.15).toFixed(2)} °C`])
-        arr.push([currentDate2, `${(currentWeather2 - 273.15).toFixed(2)} °C`])
-        arr.push([currentDate3, `${(currentWeather3 - 273.15).toFixed(2)} °C`])
-        arr.push([currentDate4, `${(currentWeather4 - 273.15).toFixed(2)} °C`])
-        arr.push([currentDate5, `${(currentWeather5 - 273.15).toFixed(2)} °C`])
+        arr.push([currentDate, `${(currentWeather - 273.15).toFixed(2)} °C`, content, details["country"].toUpperCase()])
+        arr.push([currentDate2, `${(currentWeather2 - 273.15).toFixed(2)} °C`, content, details["country"].toUpperCase()])
+        arr.push([currentDate3, `${(currentWeather3 - 273.15).toFixed(2)} °C`, content, details["country"].toUpperCase()])
+        arr.push([currentDate4, `${(currentWeather4 - 273.15).toFixed(2)} °C`, content, details["country"].toUpperCase()])
+        arr.push([currentDate5, `${(currentWeather5 - 273.15).toFixed(2)} °C`, content, details["country"].toUpperCase()])
         return arr
     }
     
