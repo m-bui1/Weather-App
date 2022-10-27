@@ -38,3 +38,17 @@
     transform: rotate(360deg);
   }
 }
+
+.UL {
+  text-align: center;
+  list-style-position: inside;
+}
+
+.tips {
+  text-align: center;
+  font-size: x-large;
+}
+
+.chakra-accordion__panel{
+  text-align: center;
+}

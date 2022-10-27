@@ -4,14 +4,25 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-  Box
+  Box,
+  IconButton
 } from '@chakra-ui/react'
 
-function WeatherList({ weatherRes }) {
+import { TimeIcon } from '@chakra-ui/icons'
+
+function WeatherList({ weatherRes, weatherInverse }) {
+  // let arr = []
+  // let toggleTime = true
+  // if(toggleTime){
+  //   arr = weatherRes
+  // } else if(toggleTime === false){
+  //   arr = weatherInverse
+  // }
   return(
     <div className="onClickWeather">
     <Accordion defaultIndex={[0]} allowMultiple>
-      {weatherRes.map((weather, index) => 
+      {
+      weatherRes.map((weather, index) => 
         <AccordionItem>
           <h2>
             <AccordionButton className='tabs' bg='var(--chakra-colors-teal-600)'>
@@ -22,24 +33,14 @@ function WeatherList({ weatherRes }) {
             </AccordionButton>
           </h2>
           <AccordionPanel pb={4} color='black'>
-            {weather[1]}, {weather[4]}
+            {weather[1]}, {weather[4]}, <img src={`https://openweathermap.org/img/wn/${weather[5]}.png`} alt="" srcset="" />
           </AccordionPanel>
         </AccordionItem>
         )}
+      
       </Accordion>
       </div>
   )
 }
 
-// function WeatherList({ weatherRes }) {
-//   return(
-//     <div className="WeatherRes">
-//       <section className="Weather">
-//         {weatherRes.map((weather, index) => 
-//             <div> <p key={index}>{weather[0]}, {weather[1]}</p> </div>
-//         )}
-//       </section>
-//     </div>
-//   )
-// }
 export default WeatherList

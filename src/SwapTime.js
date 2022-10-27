@@ -1,7 +1,6 @@
 import { Button, ButtonGroup, Input } from '@chakra-ui/react'
 
-
-function CityInput({ userInput, content, handleContentChange, saveCity, saveInverse }) {
+function CityInput({ userInput, content, handleContentChange, saveCity }) {
   return (
     <div className="CityInput">
       <Input placeholder='City...' size='md' type="text" 
@@ -11,11 +10,7 @@ function CityInput({ userInput, content, handleContentChange, saveCity, saveInve
       <Button
         onClick={saveCity} 
       >Select City</Button>
-      <Button
-        onClick={saveInverse} 
-      >Swap Time</Button>
     </div>
-
   )
 }
 
